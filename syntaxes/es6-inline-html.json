@@ -31,81 +31,28 @@
       "end": "(`)",
       "patterns": [
         {
-          "include": "source.ts#template-substitution-element"
-        },
-        {
           "include": "text.html.basic"
         },
         {
-          "include": "inline.es6-htmlx#template"
+          "include": "source.vue#vue-directives"
+        },
+        {
+          "include": "source.vue#vue-interpolations"
         }
+        
       ]
     },
     {
-      "begin": "(?i)((html|template|inline-html|inline-template))(`)",
-      "beginCaptures": {
-        "1": {
-          "name": "comment.block"
-        }
-      },
-      "end": "(`)",
+      "fileTypes": [
+        "js"
+      ],
+      "injectionSelector": "L:meta.tag -meta.attribute -attribute_value -source.tsx -source.js.jsx, L:meta.element -meta.attribute",
       "patterns": [
         {
-          "include": "source.ts#template-substitution-element"
-        },
-        {
-          "include": "text.html.basic"
-        },
-        {
-          "include": "inline.es6-htmlx#template"
-        },
-        {
-          "include": "string.quoted.other.template.js"
+          "include": "source.vue#vue-directives"
         }
-      ]
-    },
-    {
-      "begin": "(?i)(?<=\\s|\\,|\\=|\\:|\\(|\\$\\()\\s{0,}(((\\/\\*)|(\\/\\/))\\s?(html|template|inline-html|inline-template)[ ]{0,1000}\\*?\\/?)[ ]{0,1000}$",
-      "beginCaptures": {
-        "1": {
-          "name": "comment.line"
-        }
-      },
-      "end": "(`).*",
-      "patterns": [
-        {
-          "begin": "(\\G)",
-          "end": "(`)"
-        },
-        {
-          "include": "source.ts#template-substitution-element"
-        },
-        {
-          "include": "text.html.basic"
-        }
-      ]
-    },
-    {
-      "begin": "(\\${)",
-      "end": "(})",
-      "beginCaptures": {
-        "1": {
-          "name": "entity.name.tag"
-        }
-      },
-      "endCaptures": {
-        "1": {
-          "name": "entity.name.tag"
-        }
-      },
-      "patterns": [
-        {
-          "include": "source.ts#template-substitution-element"
-        },
-        {
-          "include": "source.js"
-        }
-      ]
+      ],
+      "scopeName": "vue.directives"
     }
   ],
   "scopeName": "inline.es6-html"
